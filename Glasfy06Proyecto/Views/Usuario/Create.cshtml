@@ -4,14 +4,14 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Nuevo Usuario</h2>
+<p>En este formulario podra registrar un nuevo usuario</p>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>usuario</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
