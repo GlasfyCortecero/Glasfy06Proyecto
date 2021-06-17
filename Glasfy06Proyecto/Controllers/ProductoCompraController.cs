@@ -5,55 +5,54 @@ using System.Web;
 using System.Web.Mvc;
 using Glasfy06Proyecto.Models;
 
+
 namespace Glasfy06Proyecto.Controllers
 {
-    public class CompraController : Controller
+    public class ProductoCompraController : Controller
     {
-        // GET: Compra
+        // GET: ProductoCompra
         public ActionResult Index()
         {
             using (var db = new inventario2021Entities())
             {
-                return View(db.compra.ToList());
+                return View(db.producto_compra.ToList());
             }
         }
-        public static string NombreUsuario(int idUsuario)
+        public static int CompraProducto(int idCompra)
         {
             using (var db = new inventario2021Entities())
             {
-                return db.usuario.Find(idUsuario).nombre;
+                return db.compra.Find(idCompra).total;
             }
         }
-        public ActionResult ListarUsuarios()
+        public ActionResult ListarCompra()
         {
             using (var db = new inventario2021Entities())
             {
-                return PartialView(db.usuario.ToList());
+                return PartialView(db.compra.ToList());
             }
         }
-        public static string NombreCliente(int idcliente)
+        public static string NombreProducto(int idProducto)
         {
             using (var db = new inventario2021Entities())
             {
-                return db.cliente.Find(idcliente).nombre;
+                return db.producto.Find(idProducto).nombre;
             }
         }
-        public ActionResult ListarClientes()
+        public ActionResult ListarProducto()
         {
             using (var db = new inventario2021Entities())
             {
-                return PartialView(db.cliente.ToList());
+                return PartialView(db.producto.ToList());
             }
         }
         public ActionResult Create()
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public ActionResult Create(compra newCompra)
+        public ActionResult Create(producto_compra newProductoCompra)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -62,7 +61,7 @@ namespace Glasfy06Proyecto.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    db.compra.Add(newCompra);
+                    db.producto_compra.Add(newProductoCompra);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -77,16 +76,16 @@ namespace Glasfy06Proyecto.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                compra compraDetalle = db.compra.Where(a => a.id == id).FirstOrDefault();
-                return View(compraDetalle);
+                producto_compra productoCompraDetalle = db.producto_compra.Where(a => a.id == id).FirstOrDefault();
+                return View(productoCompraDetalle);
             }
         }
         public ActionResult Delete(int id)
         {
             using (var db = new inventario2021Entities())
             {
-                var compraDelete = db.compra.Find(id);
-                db.compra.Remove(compraDelete);
+                var productoCompraDelete = db.producto_compra.Find(id);
+                db.producto_compra.Remove(productoCompraDelete);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -97,8 +96,8 @@ namespace Glasfy06Proyecto.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    compra compra = db.compra.Where(a => a.id == id).FirstOrDefault();
-                    return View(compra);
+                    producto_compra productoCompra = db.producto_compra.Where(a => a.id == id).FirstOrDefault();
+                    return View(productoCompra);
                 }
             }
             catch (Exception ex)
@@ -107,19 +106,20 @@ namespace Glasfy06Proyecto.Controllers
                 return View();
             }
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(compra compraEdit)
+
+        public ActionResult Edit(producto_compra productoCompraEdit)
         {
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    var compra = db.compra.Find(compraEdit.id);
-                    compra.fecha = compraEdit.fecha;
-                    compra.total = compraEdit.total;
-                    compra.id_usuario = compraEdit.id_usuario;
-                    compra.id_cliente = compraEdit.id_cliente;
+                    var productoCompra = db.producto_compra.Find(productoCompraEdit.id);
+                    productoCompra.id_compra = productoCompraEdit.id_compra;
+                    productoCompra.id_producto = productoCompraEdit.id_producto;
+                    productoCompra.cantidad = productoCompraEdit.cantidad;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -131,7 +131,5 @@ namespace Glasfy06Proyecto.Controllers
             }
         }
 
-
     }
-
 }
