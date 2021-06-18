@@ -1,14 +1,15 @@
-﻿@model Glasfy06Proyecto.Models.cliente
+﻿@model Glasfy06Proyecto.Models.producto
 
 @{
     ViewBag.Title = "Delete";
+    
 }
 
-<h2>Eliminar</h2>
+<h2>Eliminar Producto</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>cliente</h4>
+    <h4>producto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -20,19 +21,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.documento)
+            @Html.DisplayNameFor(model => model.percio_unitario)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.documento)
+            @Html.DisplayFor(model => model.percio_unitario)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.email)
+            @Html.DisplayNameFor(model => model.descripcion)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.email)
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_proveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_proveedor)
         </dd>
 
     </dl>

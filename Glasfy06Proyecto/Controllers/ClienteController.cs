@@ -111,6 +111,7 @@ namespace Glasfy06Proyecto.Controllers
             {
                 var cliente = db.cliente.Find(id);
                 db.cliente.Remove(cliente);
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

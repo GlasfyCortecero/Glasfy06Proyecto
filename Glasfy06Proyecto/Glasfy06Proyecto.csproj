@@ -337,6 +337,7 @@
     <Content Include="Views\UsuarioRol\Details.cshtml" />
     <Content Include="Views\UsuarioRol\Detele.cshtml" />
     <Content Include="Views\UsuarioRol\Edit.cshtml" />
+    <Content Include="Views\Producto\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
