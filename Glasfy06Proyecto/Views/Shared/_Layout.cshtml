@@ -27,14 +27,36 @@
                     <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("CRUD Usuario", "Index", "Usuario")</li>
-                        <li>@Html.ActionLink("CRUD Proveedor", "Index", "Proveedor")</li>
-                        <li>@Html.ActionLink("CRUD Cliente", "Index", "Cliente")</li>
-                        <li>@Html.ActionLink("CRUD Producto", "Index", "Producto")</li>
-                        <li>@Html.ActionLink("CRUD Compra", "Index", "Compra")</li>                       
-                        <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
-                    }
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="despegable" href="#">
 
+                                Menu Crud Tablas
+
+                            </a>
+                            <div class="dropdown-menu">
+
+                                <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Usuario", "Index", "usuarios")</a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Roles", "Index", "Roles")</a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("CRUD UsuarioRol", "Index", "UsuarioRol")</a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Cliente", "Index", "Cliente")</a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Compra", "Index", "Compras")</a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Proveedor", "Index", "Proveedor")</a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Producto", "Index", "Producto")</a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("CRUD ProductoCompra", "Index", "ProductoCompra")</a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("CRUD ProductoImagen", "Index", "ProductoImagen")</a>
+
+                            </div>
+                        </li>                      
+                        <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
+                     }
                 </ul>
             </div>
         </div>
