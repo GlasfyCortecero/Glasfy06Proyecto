@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Glasfy06Proyecto.Models;
+using Rotativa;
 
 
 namespace Glasfy06Proyecto.Controllers
@@ -147,6 +148,10 @@ namespace Glasfy06Proyecto.Controllers
             }
 
 
+        }
+        public ActionResult ImprimirReporte()
+        {
+            return new ActionAsPdf("Reporte") { FileName = "reporte.pdf" };
         }
     }
 }        
