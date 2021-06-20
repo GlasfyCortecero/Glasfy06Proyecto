@@ -11,7 +11,8 @@ namespace Glasfy06Proyecto.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +23,22 @@ namespace Glasfy06Proyecto.Models
         }
     
         public int id { get; set; }
+
+
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        [StringLength(20, ErrorMessage = "Solo 20 Caracteres")]
         public string nombre { get; set; }
+
+
+        [Required(ErrorMessage = "Precio obligatorio")]       
         public int percio_unitario { get; set; }
+
+
+        [Required(ErrorMessage = "Descripcion obligatorio")]        
         public string descripcion { get; set; }
+
+
+        [Required(ErrorMessage = "Cantidad obligatoria")]       
         public int cantidad { get; set; }
         public int id_proveedor { get; set; }
     

@@ -100,6 +100,8 @@ namespace Glasfy06Proyecto.Controllers
 
         public ActionResult Edit(producto productoEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
             try
             {
                 using (var db = new inventario2021Entities())

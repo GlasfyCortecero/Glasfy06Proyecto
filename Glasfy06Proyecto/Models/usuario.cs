@@ -11,7 +11,8 @@ namespace Glasfy06Proyecto.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +23,14 @@ namespace Glasfy06Proyecto.Models
         }
     
         public int id { get; set; }
+
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        [StringLength(20, ErrorMessage = "Solo 20 Caracteres")]
         public string nombre { get; set; }
         public string apellido { get; set; }
         public System.DateTime fecha_nacimiento { get; set; }
+
+        [EmailAddress]
         public string email { get; set; }
         public string password { get; set; }
     

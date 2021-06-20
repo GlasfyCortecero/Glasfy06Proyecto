@@ -111,6 +111,8 @@ namespace Glasfy06Proyecto.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(compra compraEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
             try
             {
                 using (var db = new inventario2021Entities())

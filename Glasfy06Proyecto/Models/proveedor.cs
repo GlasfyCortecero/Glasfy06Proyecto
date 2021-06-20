@@ -11,7 +11,8 @@ namespace Glasfy06Proyecto.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class proveedor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,17 @@ namespace Glasfy06Proyecto.Models
         }
     
         public int id { get; set; }
+
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        [StringLength(20, ErrorMessage = "Solo 20 Caracteres")]
         public string nombre { get; set; }
+
+
+        [Required(ErrorMessage = "Direccion obligatoria")]
         public string direccion { get; set; }
+
+
+        [Required(ErrorMessage = "Telefono obligatorio")]
         public string telefono { get; set; }
         public string nombre_contacto { get; set; }
     
