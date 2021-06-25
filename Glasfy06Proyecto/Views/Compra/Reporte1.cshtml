@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Glasfy06Proyecto.Models.Reporte1>
+
+
+@{
+    ViewBag.Title = "Reporte1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reporte1</h2>
+
+<table class="table">
+    <tr>
+        <th>Cliente</th>
+        <th>Documento Cliente</th>
+        <th>Correo Cliente</th>
+        <th>Fecha Compra</th>
+        <th>Compra Total</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.nombreCliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.documentoCliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.emailCliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.fechaCompra)</td>
+            <td>@Html.DisplayFor(modelItem => item.totalCompra)</td>
+        </tr>
+    }
+</table>
+
+<img src="https://i.pinimg.com/originals/a9/23/92/a923925bde45a3a0dbdf2f4e7a6b0053.jpg" alt="Alternate Text" />
+<p>Compra hoy tus productos favoritos de forma fácil y segura en nuestra tienda online. Envíos a todo el país.</p>
+
+@Html.ActionLink("Generar Reporte1", "ImprimirReporte1", "Compra");

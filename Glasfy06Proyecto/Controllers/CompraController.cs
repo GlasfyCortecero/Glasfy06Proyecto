@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Glasfy06Proyecto.Models;
+using Rotativa;
 
 namespace Glasfy06Proyecto.Controllers
 {
@@ -131,6 +132,34 @@ namespace Glasfy06Proyecto.Controllers
                 ModelState.AddModelError("", "error " + ex);
                 return View();
             }
+        }
+        public ActionResult Reporte1()
+        {
+            try
+            {
+                var db = new inventario2021Entities();
+                var query = from tabCliente in db.cliente
+                            join tabCompra in db.compra on tabCliente.id equals tabCompra.id_cliente
+                            select new Reporte1
+                            {
+                                nombreCliente = tabCliente.nombre,
+                                documentoCliente = tabCliente.documento,
+                                emailCliente = tabCliente.email,
+                                fechaCompra = tabCompra.fecha,
+                                totalCompra = tabCompra.total
+                            };
+
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+        public ActionResult ImprimirReporte1()
+        {
+            return new ActionAsPdf("Reporte1") { FileName = "reporte1.pdf" };
         }
 
 

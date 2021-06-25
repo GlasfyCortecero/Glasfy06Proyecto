@@ -11,6 +11,10 @@ namespace Glasfy06Proyecto.Models
         public String direccionProveedor { get; set; }
         public String telefonoProveedor { get; set; }
         public String nombreProducto { get; set; }
-        public int precioProducto { get; set; }
+        public int precioProducto { get; set; }    
+
+      
     }
+
+
 }
