@@ -1,12 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title -Sistema de Inventario</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/custom.css">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -27,12 +31,8 @@
                     <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="despegable" href="#">
-
-                                Menu Crud Tablas
-
-                            </a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu Crud Tablas <span class="glyphicon glyphicon-folder-open"></span></a>
                             <div class="dropdown-menu">
 
                                 <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Usuario", "Index", "usuario")</a>
@@ -54,9 +54,11 @@
                                 <a class="dropdown-item" href="#">@Html.ActionLink("CRUD ProductoImagen", "Index", "ProductoImagen")</a>
 
                             </div>
-                        </li>                      
+                             
+                        </li>
+
                         <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
-                     }
+                    }
                 </ul>
             </div>
         </div>
@@ -65,12 +67,16 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Glasfira Maria Cortecero - gmcortecero@misena.edu.co</p>
+            <p>&copy; @DateTime.Now.Year - Yesid Rene Betin - yrbetin@misena.edu.co</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
+
+<img src="https://eva3d.com/blog/wp-content/uploads/2016/07/digital-marketing-inmobiliario-herramientas-de-ventas-1024x357.png" alt="Alternate Text" />

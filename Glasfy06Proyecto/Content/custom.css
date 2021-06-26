@@ -1,0 +1,48 @@
+﻿/*aplicando estilos a una etiqueta*/
+body {
+    font-family: 'Dosis', sans-serif;
+}
+
+/*aplicando estilos por medio de las clases*/
+.tituloHome {
+}
+
+.navbar-inverse {
+    background-color: #08efdf;
+    border-color: #0509a7;
+}
+
+.navbar-inverse .navbar-brand {
+        color: black;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+        color: black;
+}
+
+.jumbotron h1, .jumbotron .h1 {
+    color: mediumslateblue;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color:cyan;
+    border-color:blue;
+}
+
+.jumbotron {
+    background-color: palegoldenrod;
+}
+
+body {
+    color: #333333;
+    background-color: mediumspringgreen;
+}
+
+.btn-default {
+    color: #fff;
+    background-color: cyan;
+    border-color: blue;
+}
+
+
